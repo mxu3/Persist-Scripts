@@ -322,7 +322,7 @@ Version_Info_End
 
     #------------------------------------------------------------------------------
     #
-    #  We launch run-mksquashfs from inside a x-terminal-emulator run in the bg.  We also
+    #  We launch run-mksquashfs from inside a x-terminal-emulator run in the bg.  We also   //  this does work with xfce4-terminal.wrapper but not with konsole , which might be set as the kalternative. with konsole being active , a workaround is to set sleep time from 1 sec to 600 sec. or a long enough time.
     #  launch a yad dialog in the bg.  We monitor them both in the loop below.  If
     #  the x-terminal-emulator exits we simply kill the yad dialog.  If the yad dialog exits we
     #  first launch another yad dialog asking for confirmation.  If confirmed we
@@ -332,7 +332,7 @@ Version_Info_End
 
     T0=$(get_time)
     if [ "$SET_GUI" ]; then
-        ($GUI_TERM $TERM_TITLE_OPT "$(gt "Remastering -- DO NOT CLOSE")" $TERM_OPTS $MKSQ_COMMAND &>/dev/null)&
+        ($GUI_TERM $TERM_TITLE_OPT "$(gt "Remastering -- DO NOT CLOSE")" $TERM_OPTS $MKSQ_COMMAND &>/dev/null)&     ## better call xfce4-terminal directly
         mksq_pid=$!
         disown $mksq_pid
 

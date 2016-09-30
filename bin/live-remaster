@@ -367,7 +367,7 @@ Version_Info_End
                 gui_wait
             fi
 
-            sleep 1
+            sleep 1    ## in case of breakage, try 600 sec or more here
         done
 
     else
